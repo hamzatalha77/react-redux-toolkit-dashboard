@@ -1,5 +1,5 @@
-import React from "react";
-import "./menulink.css";
+import React from 'react'
+import './menulink.css'
 
 export default function MenuLink({ icon, text }) {
   return (
@@ -7,8 +7,8 @@ export default function MenuLink({ icon, text }) {
       {icon}
       <span className="menuLinkText">{text}</span>
       <span className="menuLinkTextName">
-        {text === "Logout" && "( John )"}
+        {text === 'Logout' && '( John )'}
       </span>
     </div>
-  );
+  )
 }
