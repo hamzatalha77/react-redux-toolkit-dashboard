@@ -3,7 +3,7 @@ import Warning from '../warning/Warning'
 import './update.css'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { remove, update } from '../../redux/userSlice'
+import { addHello, remove, update } from '../../redux/userSlice'
 
 interface RootState {
   user: {
@@ -19,7 +19,7 @@ export default function Update() {
 
   const handleUpdate = (event: any) => {
     event.preventDefault()
-    dispatch(update({ name, email }))
+    dispatch(addHello({ name, email }))
   }
   const handleDelete = (event: any) => {
     event.preventDefault()

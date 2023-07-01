@@ -15,8 +15,11 @@ const userSlice = createSlice({
       state.name = ''
       state.email = ''
     },
+    addHello: (state, action) => {
+      state.name = 'hello ' + action.payload.name
+    },
   },
 })
-const { update, remove } = userSlice.actions
-export { userSlice, update, remove }
+const { update, remove, addHello } = userSlice.actions
+export { userSlice, update, remove, addHello }
 export default userSlice.reducer

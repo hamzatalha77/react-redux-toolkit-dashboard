@@ -13,7 +13,7 @@ export default function Recommendation({ type }: any) {
   const name = useSelector((state: RootState) => state.user.name)
   const title =
     type === 'user'
-      ? 'Reccomended for ' + name
+      ? 'Recommended for ' + name
       : type === 'popular'
       ? 'Popular on Lama App'
       : "Editor's choice"
