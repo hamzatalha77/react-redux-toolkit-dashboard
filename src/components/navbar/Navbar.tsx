@@ -11,6 +11,7 @@ interface RootState {
 }
 const Navbar = () => {
   const name = useSelector((state: RootState) => state.user.name)
+  console.log('navbar re-rendering')
   return (
     <div className="navbar">
       <div className="navbarWrapper">
