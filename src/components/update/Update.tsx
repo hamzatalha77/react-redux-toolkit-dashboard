@@ -3,7 +3,7 @@ import Warning from '../warning/Warning'
 import './update.css'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { update } from '../../redux/userSlice'
+import { remove, update } from '../../redux/userSlice'
 
 interface RootState {
   user: {
@@ -21,12 +21,18 @@ export default function Update() {
     event.preventDefault()
     dispatch(update({ name, email }))
   }
+  const handleDelete = (event: any) => {
+    event.preventDefault()
+    dispatch(remove())
+  }
   return (
     <div className="update">
       <div className="updateWrapper">
         <h3 className="updateTitle">Update Your Account</h3>
         <Warning />
-        <button className="delete">Delete Account</button>
+        <button className="delete" onClick={handleDelete}>
+          Delete Account
+        </button>
         <div className="updateContainer">
           <form>
             <div className="formItem">
