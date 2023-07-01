@@ -2,11 +2,18 @@ import React from 'react'
 import Warning from '../warning/Warning'
 import './update.css'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
+interface RootState {
+  user: {
+    name: string
+    email: string
+  }
+}
 export default function Update() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-
+  const user = useSelector((state: RootState) => state.user)
   return (
     <div className="update">
       <div className="updateWrapper">
