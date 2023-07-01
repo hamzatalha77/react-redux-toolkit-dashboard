@@ -19,7 +19,7 @@ export default function Update() {
 
   const handleUpdate = (event: any) => {
     event.preventDefault()
-    dispatch(update)
+    dispatch(update({ name, email }))
   }
   return (
     <div className="update">
