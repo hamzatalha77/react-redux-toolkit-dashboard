@@ -14,6 +14,7 @@ export default function Update() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const user = useSelector((state: RootState) => state.user)
+
   return (
     <div className="update">
       <div className="updateWrapper">
@@ -38,7 +39,7 @@ export default function Update() {
               <input
                 className="formInput"
                 type="text"
-                placeholder="John"
+                placeholder={user.name}
                 onChange={(event) => setName(event.target.value)}
               />
             </div>
@@ -47,7 +48,7 @@ export default function Update() {
               <input
                 className="formInput"
                 type="text"
-                placeholder="john@gmail.com"
+                placeholder={user.email}
                 onChange={(event) => setEmail(event.target.value)}
               />
             </div>
