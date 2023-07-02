@@ -20,11 +20,11 @@ export default function Update() {
 
   const handleUpdate = (event: any) => {
     event.preventDefault()
-    dispatch(updateUser({ name, email }, dispatch))
+    updateUser({ name, email }, dispatch)
   }
   const handleDelete = (event: any) => {
     event.preventDefault()
-    dispatch(remove())
+    // dispatch(remove())
   }
   return (
     <div className="update">
