@@ -15,12 +15,19 @@ const userSlice = createSlice({
     pending: false,
     error: false,
   },
-  reducers: {
-  
+  reducers: {},
+  extraReducers: {
+    [updateUser2.pending]: (state) => {
+      state.pending = true
+      state.error = false
+    },
+    [updateUser2.fulfilled]: (state) => {
+      state.pending = true
+      state.error = false
+    },
   },
-  extraReducers:{[updateUser2.pending]}
 })
 
 const {} = userSlice.actions
-export { userSlice,updateUser2 }
+export { userSlice, updateUser2 }
 export default userSlice.reducer
