@@ -21,9 +21,13 @@ const userSlice = createSlice({
       state.pending = true
       state.error = false
     },
-    [updateUser2.fulfilled]: (state) => {
-      state.pending = true
-      state.error = false
+    [updateUser2.fulfilled]: (state, action) => {
+      state.pending = false
+      state.userInfo = action.payload
+    },
+    [updateUser2.rejected]: (state) => {
+      state.pending = false
+      state.error = true
     },
   },
 })
