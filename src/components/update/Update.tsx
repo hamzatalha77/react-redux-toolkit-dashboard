@@ -16,7 +16,9 @@ interface RootState {
 export default function Update() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const user = useSelector((state: RootState) => state.user.userInfo)
+  const { userInfo, pending, error } = useSelector(
+    (state: RootState) => state.user.userInfo
+  )
   const dispatch = useDispatch()
 
   const handleUpdate = (event: any) => {
@@ -53,7 +55,7 @@ export default function Update() {
               <input
                 className="formInput"
                 type="text"
-                placeholder={user.name}
+                placeholder={userInfo.name}
                 onChange={(event) => setName(event.target.value)}
               />
             </div>
@@ -62,7 +64,7 @@ export default function Update() {
               <input
                 className="formInput"
                 type="text"
-                placeholder={user.email}
+                placeholder={userInfo.email}
                 onChange={(event) => setEmail(event.target.value)}
               />
             </div>
@@ -70,9 +72,14 @@ export default function Update() {
               <label>Password</label>
               <input className="formInput" type="password" />
             </div>
-            <button className="updateButton" onClick={handleUpdate}>
+            <button
+              disabled={pending}
+              className="updateButton"
+              onClick={handleUpdate}
+            >
               Update
             </button>
+            {error && <span className="error">something went wrong!</span>}
           </form>
         </div>
       </div>
