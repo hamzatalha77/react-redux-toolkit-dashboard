@@ -82,6 +82,9 @@ export default function Update() {
               Update
             </button>
             {error && <span className="error">something went wrong!</span>}
+            {pending === false && (
+              <span className="success">Account has been updated!</span>
+            )}
           </form>
         </div>
       </div>
