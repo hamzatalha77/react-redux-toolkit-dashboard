@@ -11,6 +11,8 @@ interface RootState {
       name: string
       email: string
     }
+    pending: false
+    error: false
   }
 }
 export default function Update() {
