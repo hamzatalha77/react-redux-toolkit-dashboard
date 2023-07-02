@@ -1,5 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import axios from 'axios'
 
+const updateUser2 = createAsyncThunk('users/update', async (user) => {
+  const res = await axios.post('http://localhost:8800/api/users/1/update', user)
+  return res.data
+})
 const userSlice = createSlice({
   name: 'user',
   initialState: {
@@ -11,20 +16,11 @@ const userSlice = createSlice({
     error: false,
   },
   reducers: {
-    updateStart: (state) => {
-      state.pending = true
-    },
-    updateSuccess: (state, action) => {
-      state.pending = false
-      state.userInfo = action.payload
-    },
-    updateError: (state) => {
-      state.error = true
-      state.pending = false
-    },
+  
   },
+  extraReducers:{[updateUser2.pending]}
 })
 
-const { updateStart, updateSuccess, updateError } = userSlice.actions
-export { userSlice, updateStart, updateSuccess, updateError }
+const {} = userSlice.actions
+export { userSlice,updateUser2 }
 export default userSlice.reducer
