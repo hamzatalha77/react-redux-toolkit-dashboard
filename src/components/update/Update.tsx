@@ -11,15 +11,15 @@ interface RootState {
       name: string
       email: string
     }
-    pending: false
-    error: false
+    pending: boolean
+    error: boolean
   }
 }
 export default function Update() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const { userInfo, pending, error } = useSelector(
-    (state: RootState) => state.user.userInfo
+    (state: RootState) => state.user
   )
   const dispatch = useDispatch()
 

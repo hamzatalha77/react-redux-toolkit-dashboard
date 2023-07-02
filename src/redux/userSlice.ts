@@ -10,7 +10,6 @@ const userSlice = createSlice({
     pending: false,
     error: false,
   },
-
   reducers: {
     updateStart: (state) => {
       state.pending = true
@@ -25,6 +24,7 @@ const userSlice = createSlice({
     },
   },
 })
+
 const { updateStart, updateSuccess, updateError } = userSlice.actions
 export { userSlice, updateStart, updateSuccess, updateError }
 export default userSlice.reducer
