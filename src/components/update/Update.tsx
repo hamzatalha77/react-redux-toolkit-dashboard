@@ -3,19 +3,20 @@ import Warning from '../warning/Warning'
 import './update.css'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {} from '../../redux/userSlice'
 import { updateUser } from '../../redux/apiCalls'
 
 interface RootState {
   user: {
-    name: string
-    email: string
+    userInfo: {
+      name: string
+      email: string
+    }
   }
 }
 export default function Update() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const user = useSelector((state: RootState) => state.user)
+  const user = useSelector((state: RootState) => state.user.userInfo)
   const dispatch = useDispatch()
 
   const handleUpdate = (event: any) => {
