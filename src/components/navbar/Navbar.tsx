@@ -5,12 +5,14 @@ import { useSelector } from 'react-redux'
 
 interface RootState {
   user: {
-    name: string
-    // other properties of the user state
+    userInfo: {
+      name: string
+      email: string
+    }
   }
 }
 const Navbar = () => {
-  const name = useSelector((state: RootState) => state.user.name)
+  const name = useSelector((state: RootState) => state.user.userInfo.name)
   console.log('navbar re-rendering')
   return (
     <div className="navbar">
