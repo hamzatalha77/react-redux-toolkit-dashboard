@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { FormEvent } from 'react'
 import Warning from '../warning/Warning'
 import './update.css'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateUser } from '../../redux/apiCalls'
+import { updateUser2, User } from '../../redux/userSlice'
 
 interface RootState {
   user: {
@@ -15,6 +15,7 @@ interface RootState {
     error: boolean
   }
 }
+
 export default function Update() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -25,7 +26,8 @@ export default function Update() {
 
   const handleUpdate = (event: any) => {
     event.preventDefault()
-    updateUser({ name, email }, dispatch)
+    const user: User = { name, email }
+    dispatch(updateUser2(user) as any)
   }
   const handleDelete = (event: any) => {
     event.preventDefault()
